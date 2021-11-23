@@ -1,0 +1,14 @@
+{
+  "name": "bel-backend",
+  "version": "o.o.1",
+  "main": "index.js",
+  "repository": "git@github.com:killogamer/bel-backend.git",
+  "license": "MIT",
+  "scripts": {
+    "test":"mocha --watch **/*.spec.js"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
+}
