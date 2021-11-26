@@ -41,6 +41,23 @@ describe('Account', () => {
     let accountTo = new Account()
     accountTo.balance = 12
     expect(() => accountFrom.transfer(4 , accountTo)).to.throw('Cannot debit more than balance')
-  })    
-})
+  }) 
+  
+  it('history returns last transactions', () => {
+    let account = new Account()
+    account.credit(4)
+    account.credit(2)
+    account.debit(3)
+    account.credit(6)
+    let transactions = account.getHistory()
+    expect(transactions).to.be.an('array').with.lengthOf(4)
+    expect(transactions[0].amount).to.equal(6)
+    expect(transactions[0].balance).to.equal(9)
+  })
 
+  it('history returns empty array for new account', () => {
+    let account = new Account()
+    let transactions = account.getHistory()
+    expect(transactions).to.be.an('array').with.lengthOf(0)
+  })
+})
